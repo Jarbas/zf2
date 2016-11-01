@@ -1,0 +1,28 @@
+<?php
+
+$title = 'Edit script oracle';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url(
+    'oracle',
+    array(
+        'action' => 'edit',
+        'id'     => $this->id,
+    )
+));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('id'));
+echo $this->formRow($form->get('script'));
+echo $this->formRow($form->get('status'));
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();
+
+?>
+
+<a href="<?php echo $this->url('oracle', array('action'=>'index'));?>">Cancel</a>

@@ -1,0 +1,30 @@
+<?php
+
+
+$title = 'Meus scripts oracle';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('oracle', array('action'=>'add'));?>">Add new script</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>script</th>
+    <th>Status</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach ($oracles as $oracle) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($oracle->script);?></td>
+    <td><?php echo $this->escapeHtml($oracle->status);?></td>
+    <td>
+        <a href="<?php echo $this->url('oracle',
+            array('action'=>'edit', 'id' => $oracle->id));?>">Edit</a>
+        <a href="<?php echo $this->url('oracle',
+            array('action'=>'delete', 'id' => $oracle->id));?>">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>

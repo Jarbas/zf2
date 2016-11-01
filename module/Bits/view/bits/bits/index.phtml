@@ -1,0 +1,28 @@
+<?php
+
+
+$title = 'Meus  codigos bits';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('bits', array('action'=>'add'));?>">Add new bits</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>codigo</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach ($bitss as $bits) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($bits->codigo);?></td>
+    <td>
+        <a href="<?php echo $this->url('bits',
+            array('action'=>'edit', 'id' => $bits->id));?>">Edit</a>
+        <a href="<?php echo $this->url('bits',
+            array('action'=>'delete', 'id' => $bits->id));?>">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>
