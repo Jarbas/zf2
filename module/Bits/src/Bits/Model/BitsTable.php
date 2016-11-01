@@ -24,7 +24,7 @@ class BitsTable
         $rowset = $this->tableGateway->select(array('id' => $id));
         $row = $rowset->current();
         if (!$row) {
-            throw new \Exception("nao encontrou $id");
+            throw new \Exception("nao encontrou $id"); //ver se isso esta correto
         }
         return $row;
     }

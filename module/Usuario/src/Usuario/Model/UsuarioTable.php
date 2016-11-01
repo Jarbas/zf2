@@ -24,7 +24,7 @@ class UsuarioTable
         $rowset = $this->tableGateway->select(array('id' => $id));
         $row = $rowset->current();
         if (!$row) {
-            throw new \Exception("Could not find row $id");
+            throw new \Exception("nao encontrou $id");
         }
         return $row;
     }
@@ -43,7 +43,7 @@ class UsuarioTable
             if ($this->getUsuario($id)) {
                 $this->tableGateway->update($data, array('id' => $id));
             } else {
-                throw new \Exception('Form id does not exist');
+                throw new \Exception('id nao existe');
             }
         }
     }
